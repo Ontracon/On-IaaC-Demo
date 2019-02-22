@@ -9,9 +9,9 @@
   roles:
     - common
 
-#- name: configure and deploy the webservers and application code
-#  hosts: webservers
-#
-#  roles:
-#    - web
+- name: configure and deploy the webservers and application code
+  hosts: webservers
+
+  roles:
+    - web
 
