@@ -1,7 +1,8 @@
 - hosts: localhost
+  tasks:
 
-    tasks:
-              terraform:
-                          project_path: terraform-azure/
-                              state: present
+   - name: Terraform Plan
+     terraform:
+      project_path: terraform-azure/
+      state: present
  
