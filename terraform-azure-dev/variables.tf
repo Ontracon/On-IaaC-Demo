@@ -1,21 +1,45 @@
-variable "vnet_name" {
-  description = "Name of the vnet to create"
-  default     = "acctvnet"
-}
-
 variable "resource_group_name" {
-  description = "Default resource group name that the network will be created in."
-  default     = "myapp-rg"
+  description = "Default resource group name that the application will be created in."
+  default     = "on-ams-dev-webapp-rg-01"
 }
 
 variable "location" {
-  description = "The location/region where the core network will be created. The full list of Azure regions can be found at https://azure.microsoft.com/regions"
-  default     = "westus"
+  description = "The location/region where the Application will be created. The full list of Azure regions can be found at https://azure.microsoft.com/regions"
+  default     = "westeurope"
+}
+
+variable "admin_username"{
+  description = "The Admin User for the VM's"
+  default     = "jkritzen"
+}
+
+variable "ssh_key"{
+            default = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC0j9UAe85Gs5Qq0lepbxKDCFZKBuhS3TPa/ycQ27UcbC8iRl5kGXh/cU7e17eeu2qoLdcC5InMD2hodmopV92G6vwjGSoq596khgarHsKV+8sna/2XVW+EFkTSHs648iuUozlaCZQUh9ghfGsExxsqp+ZPW71gt9eqBRD/KwDyJv/g4UISDQEgwY7QGOiDF7SIcPlhYWrUST+55d/GLClTWXnmt43bWAPJuRDWq//z97O/gRAeRGsV034NuMwNzw2LcIIws12VYEsLT3Q3jqWcP8lfHHlmud9MdXb6jZjxRUmO8CW23vVndQxj5riLa5nBPCUKjNYCTYJiXXxZtW/5 jkritzen"
+}
+
+
+variable "ssh_path" {
+  default = "/home/jkritzen/.ssh/authorized_keys"
+}
+
+variable "tags" {
+  description = "The tags to associate with the resources."
+  type        = "map"
+
+  default = {
+    owner = "j.kritzen@ontracon.de"
+    env = "Development"
+  }
+}
+
+variable "vnet_name" {
+  description = "Name of the vnet to create"
+  default     = "on-ams-dev-web-vnet-01"
 }
 
 variable "address_space" {
   description = "The address space that is used by the virtual network."
-  default     = "10.0.0.0/16"
+  default     = "172.16.0.0/16"
 }
 
 # If no values specified, this defaults to Azure DNS 
@@ -24,32 +48,12 @@ variable "dns_servers" {
   default     = []
 }
 
-variable "subnet_prefixes" {
-  description = "The address prefix to use for the subnet."
-  default     = ["10.0.1.0/24"]
+variable "vm_names" {
+  description = "A list of VM's to be deployed."
+  default     = ["on-ams-web-d01","on-ams-web-d02"]
 }
 
-variable "subnet_names" {
-  description = "A list of public subnets inside the vNet."
-  default     = ["subnet1", "subnet2", "subnet3"]
-}
-
-variable "nsg_ids" {
-  description = "A map of subnet name to Network Security Group IDs"
-  type        = "map"
-
-  default = {
-    subnet1 = "nsgid1"
-    subnet3 = "nsgid3"
-  }
-}
-
-variable "tags" {
-  description = "The tags to associate with your network and subnets."
-  type        = "map"
-
-  default = {
-    tag1 = ""
-    tag2 = ""
-  }
+variable "vm_size" {
+  description = "Size of VM's to be deployed."
+  default     = "Standard_B1s"
 }

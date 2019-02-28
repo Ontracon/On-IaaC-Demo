@@ -1,28 +1,59 @@
+# Terraform Backend Configuration
+#
+# Needs to run with additional Configuration on Init: 
+# terraform init -backend-config="access_key=Storage Access Key"
+#
+
+# Backend Configuration (Make sure Storage Account & Container does exists
+# Skip (comment out) if using local tfstate file
+
+terraform {
+  backend "azurerm" {
+    storage_account_name = "ondevterraform001"
+    container_name       = "on-dev-web-app-tfstate"
+    resource_group_name  = "on-ams-dev-tfstates"
+    key                  = "terraform.tfstate"
+
+  }
+}
+
+# Azure Provider with pinning Version
 provider "azurerm" {
   # Whilst version is optional, we /strongly recommend/ using it to pin the version of the Provider being used
   version = "=1.22.0"
 }
 
-#Azure Generic vNet Module
-resource "azurerm_resource_group" "vnet" {
+#
+# Creating Resource Group
+#
+resource "azurerm_resource_group" "MyRG" {
   name     = "${var.resource_group_name}"
   location = "${var.location}"
+  tags     = "${var.tags}"
 }
 
-resource "azurerm_virtual_network" "vnet" {
-  name                = "${var.vnet_name}"
-  location            = "${var.location}"
-  address_space       = ["${var.address_space}"]
-  resource_group_name = "${azurerm_resource_group.vnet.name}"
-  dns_servers         = "${var.dns_servers}"
-  tags                = "${var.tags}"
+#
+# Generate a Random ID
+#
+
+resource "random_id" "randomId" {
+    keepers = {
+        # Generate a new ID only when a new resource group is defined
+        resource_group = "${azurerm_resource_group.MyRG.name}"
+    }
+
+    byte_length = 8
 }
 
-resource "azurerm_subnet" "subnet" {
-  name                      = "${var.subnet_names[count.index]}"
-  virtual_network_name      = "${azurerm_virtual_network.vnet.name}"
-  resource_group_name       = "${azurerm_resource_group.vnet.name}"
-  address_prefix            = "${var.subnet_prefixes[count.index]}"
-  network_security_group_id = "${lookup(var.nsg_ids,var.subnet_names[count.index],"")}"
-  count                     = "${length(var.subnet_names)}"
-}
+
+# Files that will be included
+# network.tf 	-> Network Configuration
+# nsg.tf 	-> Network Security Groups Configuration
+
+
+
+
+
+
+
+
