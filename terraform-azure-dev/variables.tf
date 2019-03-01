@@ -8,10 +8,16 @@ variable "location" {
   default     = "westeurope"
 }
 
+variable "vm_names" {
+  description = "A list of VM's to be deployed."
+  default     = ["on-ams-web-d01","on-ams-web-d02","on-ams-web-d03"]
+}
+
 variable "admin_username"{
   description = "The Admin User for the VM's"
   default     = "jkritzen"
 }
+
 
 variable "ssh_key"{
             default = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC0j9UAe85Gs5Qq0lepbxKDCFZKBuhS3TPa/ycQ27UcbC8iRl5kGXh/cU7e17eeu2qoLdcC5InMD2hodmopV92G6vwjGSoq596khgarHsKV+8sna/2XVW+EFkTSHs648iuUozlaCZQUh9ghfGsExxsqp+ZPW71gt9eqBRD/KwDyJv/g4UISDQEgwY7QGOiDF7SIcPlhYWrUST+55d/GLClTWXnmt43bWAPJuRDWq//z97O/gRAeRGsV034NuMwNzw2LcIIws12VYEsLT3Q3jqWcP8lfHHlmud9MdXb6jZjxRUmO8CW23vVndQxj5riLa5nBPCUKjNYCTYJiXXxZtW/5 jkritzen"
@@ -46,11 +52,6 @@ variable "address_space" {
 variable "dns_servers" {
   description = "The DNS servers to be used with vNet."
   default     = []
-}
-
-variable "vm_names" {
-  description = "A list of VM's to be deployed."
-  default     = ["on-ams-web-d01","on-ams-web-d02"]
 }
 
 variable "vm_size" {

@@ -1,0 +1,13 @@
+[Unit]
+Description=Ontracon Demo Web Application
+After=multi-user.target
+
+[Service]
+SyslogIdentifier=on-webapp-demo
+ExecStart=/opt/ontracon-demo-app/ontracon-demo-app
+WorkingDirectory=/opt/ontracon-demo-app
+User=root
+Type=simple
+
+[Install]
+WantedBy=multi-user.target

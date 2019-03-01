@@ -1,5 +1,5 @@
 ---
-# This playbook deploys the whole application stack in this site.
+# This playbook deploys the whole application stack in this site and some Security Settings.
 
 - name: apply common configuration to all nodes
   hosts: all
@@ -11,6 +11,8 @@
 
 - name: configure and deploy the webservers and application code
   hosts: webservers
+  become: yes
+  become_user: root
 
   roles:
     - web

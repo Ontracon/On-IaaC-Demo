@@ -1,9 +1,55 @@
 ---
-# These tasks are responsible for copying the latest dev/production code from
-# the version control system.
+# Depley the Demo WebApp
 
-- name: Copy the code from repository
-  git: repo={{ repository }} dest=/var/www/html/
+- name: Creates directory /opt/ontracon-demo-app
+  file:
+    path: /opt/ontracon-demo-app
+    state: directory
+    mode: 0755
 
-- name: Creates the index.php file
-  template: src=index.php.j2 dest=/var/www/html/index.php
+- name: Creates directory /opt/ontracon-demo-app/static
+  file:
+    path: /opt/ontracon-demo-app/static
+    state: directory
+    mode: 0755
+
+- name: Creates directory /opt/ontracon-demo-app/static/stylesheets
+  file:
+    path: /opt/ontracon-demo-app/static/stylesheets
+    state: directory
+    mode: 0755
+
+- name: Creates directory /opt/ontracon-demo-app/templates
+  file:
+    path: /opt/ontracon-demo-app/templates 
+    state: directory
+    mode: 0755
+
+- name: Download ontracon-demo-app binary
+  get_url:
+    url: https://github.com/Ontracon/ontracon-demo-app/raw/master/ontracon-demo-app
+    dest: /opt/ontracon-demo-app/ontracon-demo-app
+    mode: 0755
+
+- name: Download ontracon-demo-app background.jpeg
+  get_url:
+    url: https://github.com/Ontracon/ontracon-demo-app/raw/master/static/stylesheets/background.jpeg
+    dest: /opt/ontracon-demo-app/static/stylesheets
+    mode: 0744
+
+- name: Download ontracon-demo-app binary
+  get_url:
+    url: https://github.com/Ontracon/ontracon-demo-app/raw/master/static/stylesheets/welcome-template.css
+    dest: /opt/ontracon-demo-app/static/stylesheets
+    mode: 0755
+
+- name: Download ontracon-demo-app binary
+  get_url:
+    url: https://github.com/Ontracon/ontracon-demo-app/raw/master/templates/welcome-template.html
+    dest: /opt/ontracon-demo-app/templates/
+    mode: 0744
+
+
+
+
+
