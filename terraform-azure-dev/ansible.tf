@@ -10,7 +10,10 @@ data "template_file" "inventory" {
     ]
 
   vars {
+# Using Public FQDN Name for ansible
     web = "${join("\n", azurerm_public_ip.pip_vms.*.fqdn)}"
+# Using private IP Adress for ansible
+#  web = "${join("\n", azurerm_network_interface.vm_nics.*.private_ip_address)}"
 
   }
 }

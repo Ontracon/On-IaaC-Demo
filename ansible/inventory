@@ -1,6 +1,6 @@
 [webservers]
-on-ams-web-d01.westeurope.cloudapp.azure.com
-on-ams-web-d02.westeurope.cloudapp.azure.com
+172.16.2.4
+172.16.2.5
 
 
 
