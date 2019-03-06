@@ -7,7 +7,8 @@ On Azure the following will be deployed:
 * vNet with two subnets including basic NSG
 * Load Balancer with Frontend IP & Backend Pool which probes the Backen on Port 8080
 * n x VM's which are act as Backend Pool in an Availibility Set
-![Graph](/graph.png)
+
+![GitHub Logo](/graph.png)
 
 ## Prequisites
 1. Create a Storage Account and a Access Key for the tfstate File as Backend.
