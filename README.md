@@ -14,5 +14,5 @@ On Azure the following will be deployed:
 3. Edit "./terraform-azure-dev/variables.tf" to fit your kneeds
 4. Initialize Terraform with Backend Key:
 ```
-terraform init -backend-config="access_key=hYcbI7Yw58n9tWJ4bKt52MThlx6PLqQWAAUagTdcn0CLrIHN/qR07Y/yqeJeikCGVQSKvz/6NURQh/tNiUyyHw=="
+terraform init -backend-config="access_key=MySecretAccessKey"
 ```
