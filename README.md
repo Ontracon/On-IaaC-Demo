@@ -8,7 +8,7 @@ On Azure the following will be deployed:
 * Load Balancer with Frontend IP & Backend Pool which probes the Backen on Port 8080
 * n x VM's which are act as Backend Pool in an Availibility Set
 
-![GitHub Logo](/graph.png)
+![GitHub Logo](On-IaaC-Demo/terraform-azure-dev/graph.png)
 
 ## Prequisites
 1. Create a Storage Account and a Access Key for the tfstate File as Backend.
