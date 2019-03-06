@@ -1,5 +1,5 @@
 # On-IaaC-Demo
-##Terraform &amp; Ansible, better together.
+## Terraform &amp; Ansible, better together.
 
 This Repository contains some simple IaaC Examples to deploy a simple Web Application on Azure with Terraform and Ansible. The example ties Terraform as Provisioning Tool and Ansible as Orchestration Tool together.
 
