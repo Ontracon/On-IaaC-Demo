@@ -3,6 +3,6 @@
 
    - name: Terraform Plan
      terraform:
-      project_path: terraform-azure/
+      project_path: terraform-azure-dev/
       state: present
  
