@@ -1,7 +1,6 @@
 [webservers]
 on-ams-web-d01.westeurope.cloudapp.azure.com
 on-ams-web-d02.westeurope.cloudapp.azure.com
-on-ams-web-d03.westeurope.cloudapp.azure.com
 
 
 

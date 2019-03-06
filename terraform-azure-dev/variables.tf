@@ -10,7 +10,7 @@ variable "location" {
 
 variable "vm_names" {
   description = "A list of VM's to be deployed."
-  default     = ["on-ams-web-d01","on-ams-web-d02","on-ams-web-d03"]
+  default     = ["on-ams-web-d01","on-ams-web-d02"]
 }
 
 variable "admin_username"{
