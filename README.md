@@ -10,9 +10,24 @@ On Azure the following will be deployed:
 
 # Prequisites
 1. Create a Storage Account and a Access Key for the tfstate File as Backend.
-2. Download the GIT Repository "git pull https://github.com/Ontracon/On-IaaC-Demo"
-3. Edit "./terraform-azure-dev/variables.tf" to fit your kneeds
-4. Initialize Terraform with Backend Key:
+2. Create a Application (API) User for Terraform
+3. Set the environment Variables for Azure ARM Access:
+```
+export ARM_SUBSCRIPTION_ID=MySubscription ID
+export ARM_CLIENT_ID=MyClient ID
+export ARM_CLIENT_SECRET=67WSM7jOvTIEJ35H85skHoUr8VOtyMHeJgehjfsJeEM=
+export ARM_TENANT_ID=b864b22b-a3dd-4440-b322-56636aa03b43
+```
+4. Download the GIT Repository "git pull https://github.com/Ontracon/On-IaaC-Demo"
+5. Edit "./terraform-azure-dev/variables.tf" to fit your kneeds
+6. Initialize Terraform with Backend Key:
 ```
 terraform init -backend-config="access_key=MySecretAccessKey"
 ```
+# Deploy Application with Terraform (from ./terraform-azure-dev)
+* First create the Plan:
+`terraform plan --out MyPlan`
+* Deploy the Application on Azure:
+`terraform apply "MyPlan"`
+* Destroy the Application:
+`terraform destroy`
