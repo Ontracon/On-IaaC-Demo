@@ -1,5 +1,5 @@
 # On-IaaC-Demo
-Terraform &amp; Ansible, better together.
+## Terraform &amp; Ansible, better together.
 
 This Repository contains some simple IaaC Examples to deploy a simple Web Application on Azure with Terraform and Ansible. The example ties Terraform as Provisioning Tool and Ansible as Orchestration Tool together.
 
@@ -7,6 +7,7 @@ On Azure the following will be deployed:
 * vNet with two subnets including basic NSG
 * Load Balancer with Frontend IP & Backend Pool which probes the Backen on Port 8080
 * n x VM's which are act as Backend Pool in an Availibility Set
+
 
 ## Prequisites
 1. Create a Storage Account and a Access Key for the tfstate File as Backend.
