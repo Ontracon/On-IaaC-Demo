@@ -26,8 +26,11 @@ terraform init -backend-config="access_key=MySecretAccessKey"
 ```
 ## Deploy Application with Terraform (from ./terraform-azure-dev)
 * First create the Plan:
+
 `terraform plan --out MyPlan`
 * Deploy the Application on Azure:
+
 `terraform apply "MyPlan"`
 * Destroy the Application:
+
 `terraform destroy`
