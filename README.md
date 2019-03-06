@@ -12,5 +12,7 @@ On Azure the following will be deployed:
 1. Create a Storage Account and a Access Key for the tfstate File as Backend.
 2. Download the GIT Repository "git pull https://github.com/Ontracon/On-IaaC-Demo"
 3. Edit "./terraform-azure-dev/variables.tf" to fit your kneeds
-4. Initialize Terraform with Backend Key: 
+4. Initialize Terraform with Backend Key:
+```
 terraform init -backend-config="access_key=hYcbI7Yw58n9tWJ4bKt52MThlx6PLqQWAAUagTdcn0CLrIHN/qR07Y/yqeJeikCGVQSKvz/6NURQh/tNiUyyHw=="
+```
