@@ -34,3 +34,6 @@ terraform init -backend-config="access_key=MySecretAccessKey"
 * Destroy the Application:
 
 `terraform destroy`
+
+## Deploy Application from Ansible with Terraform
+`ansible-playbook main.yml`
