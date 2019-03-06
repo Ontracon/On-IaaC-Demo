@@ -19,7 +19,7 @@ export ARM_CLIENT_SECRET=My Client Secret
 export ARM_TENANT_ID=My Tenant ID
 ```
 4. Download the GIT Repository "git pull https://github.com/Ontracon/On-IaaC-Demo"
-5. Edit "./terraform-azure-dev/variables.tf" to fit your kneeds
+5. Edit "./terraform-azure-dev/variables.tf" to fit your needs
 6. Initialize Terraform with Backend Key:
 ```
 terraform init -backend-config="access_key=MySecretAccessKey"
