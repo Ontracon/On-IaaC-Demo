@@ -15,6 +15,7 @@ resource "azurerm_network_security_group" "NSG_DMZ" {
     source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
+}
   
 resource "azurerm_network_security_group" "NSG_WEB" {
   name                = "NSG_WEB"
