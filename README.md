@@ -8,7 +8,7 @@ On Azure the following will be deployed:
 * Load Balancer with Frontend IP & Backend Pool which probes the Backen on Port 8080
 * n x VM's which are act as Backend Pool in an Availibility Set
 
-# Prequisites
+## Prequisites
 1. Create a Storage Account and a Access Key for the tfstate File as Backend.
 2. Create a Application (API) User for Terraform
 3. Set the environment Variables for Azure ARM Access:
@@ -24,7 +24,7 @@ export ARM_TENANT_ID=My Tenant ID
 ```
 terraform init -backend-config="access_key=MySecretAccessKey"
 ```
-# Deploy Application with Terraform (from ./terraform-azure-dev)
+## Deploy Application with Terraform (from ./terraform-azure-dev)
 * First create the Plan:
 `terraform plan --out MyPlan`
 * Deploy the Application on Azure:
