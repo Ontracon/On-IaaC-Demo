@@ -33,3 +33,48 @@ terraform init -backend-config="access_key=MySecretAccessKey"
 
 ## Deploy Application from Ansible with Terraform
 `ansible-playbook main.yml`
+
+
+# Layout
+```
+├── ansible                           -> Contains ansible Roles & Configurations
+│   ├── group_vars
+│   │   └── all
+│   ├── inventory
+│   ├── roles
+│   │   ├── common
+│   │   │   ├── handlers
+│   │   │   │   └── main.yml
+│   │   │   ├── tasks
+│   │   │   │   ├── main.yml
+│   │   │   │   ├── security.yml
+│   │   │   │   └── update.yml
+│   │   │   └── templates
+│   │   │       └── ntp.conf.j2
+│   │   └── web
+│   │       ├── tasks
+│   │       │   ├── go-autostart.yml
+│   │       │   ├── go-wget-app.yml
+│   │       │   └── main.yml
+│   │       └── templates
+│   │           └── on-webapp-demo.service.j2
+│   ├── site.retry
+│   └── site.yml
+├── LICENSE
+├── main.yml
+├── README.md
+└── terraform-azure-dev                 -> Contains Terraform Infrastructure for Azure
+    ├── ansible.tf
+    ├── graph.png
+    ├── lb.tf
+    ├── main.tf
+    ├── MyPlan
+    ├── network.tf
+    ├── nsg.tf
+    ├── outputs.tf
+    ├── plan
+    ├── templates
+    │   └── inventory.tpl
+    ├── variables.tf
+    └── vms.tf
+```
