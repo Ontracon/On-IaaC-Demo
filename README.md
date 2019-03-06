@@ -15,8 +15,8 @@ On Azure the following will be deployed:
 ```
 export ARM_SUBSCRIPTION_ID=MySubscription ID
 export ARM_CLIENT_ID=MyClient ID
-export ARM_CLIENT_SECRET=67WSM7jOvTIEJ35H85skHoUr8VOtyMHeJgehjfsJeEM=
-export ARM_TENANT_ID=b864b22b-a3dd-4440-b322-56636aa03b43
+export ARM_CLIENT_SECRET=My Client Secret
+export ARM_TENANT_ID=My Tenant ID
 ```
 4. Download the GIT Repository "git pull https://github.com/Ontracon/On-IaaC-Demo"
 5. Edit "./terraform-azure-dev/variables.tf" to fit your kneeds
