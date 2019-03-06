@@ -14,13 +14,13 @@ resource "azurerm_virtual_network" "vnet" {
 # Creating Subnets
 # 
 
-#resource "azurerm_subnet" "subnet_dmz" {
-#  name                      = "DMZ_Frontend1"
-#  virtual_network_name      = "${azurerm_virtual_network.vnet.name}"
-#  resource_group_name       = "${azurerm_resource_group.MyRG.name}"
-#  address_prefix            = "172.16.1.0/24"
-#  network_security_group_id = "${azurerm_network_security_group.NSG_LB.id}"
-#}
+resource "azurerm_subnet" "subnet_dmz" {
+  name                      = "DMZ_Frontend1"
+  virtual_network_name      = "${azurerm_virtual_network.vnet.name}"
+  resource_group_name       = "${azurerm_resource_group.MyRG.name}"
+  address_prefix            = "172.16.1.0/24"
+  network_security_group_id = "${azurerm_network_security_group.NSG_LB.id}"
+}
 
 resource "azurerm_subnet" "subnet_web" {
   name                      = "WEB_Frontend2"
