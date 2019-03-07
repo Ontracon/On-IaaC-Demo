@@ -15,7 +15,7 @@ On Azure the following will be deployed:
 3. Set up the Access to Azure ARM Portal:
 https://www.terraform.io/docs/providers/azurerm/index.html
 
-4. Download the GIT Repository "git pull https://github.com/Ontracon/On-IaaC-Demo"
+4. Download the GIT Repository `git clone https://github.com/Ontracon/On-IaaC-Demo`
 5. Edit "./terraform-azure-dev/variables.tf" to fit your needs
 6. Initialize Terraform with Backend Key:
 ```
