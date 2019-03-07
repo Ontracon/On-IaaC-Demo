@@ -37,13 +37,13 @@
     dest: /opt/ontracon-demo-app/static/stylesheets
     mode: 0744
 
-- name: Download ontracon-demo-app binary
+- name: Download ontracon-demo-app welcome-template.css
   get_url:
     url: https://github.com/Ontracon/ontracon-demo-app/raw/master/static/stylesheets/welcome-template.css
     dest: /opt/ontracon-demo-app/static/stylesheets
     mode: 0755
 
-- name: Download ontracon-demo-app binary
+- name: Download ontracon-demo-app welcome-template.html
   get_url:
     url: https://github.com/Ontracon/ontracon-demo-app/raw/master/templates/welcome-template.html
     dest: /opt/ontracon-demo-app/templates/
