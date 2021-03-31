@@ -1,8 +1,8 @@
 resource "azurerm_network_security_group" "NSG_DMZ" {
   name                = "NSG_DMZ"
-  location            = "${var.location}"
-  resource_group_name = "${azurerm_resource_group.MyRG.name}"
-  tags                = "${var.tags}"
+  location            = var.location
+  resource_group_name = azurerm_resource_group.MyRG.name
+  tags                = var.tags
 
   security_rule {
     name                       = "allow_80"
@@ -16,12 +16,12 @@ resource "azurerm_network_security_group" "NSG_DMZ" {
     destination_address_prefix = "*"
   }
 }
-  
+
 resource "azurerm_network_security_group" "NSG_WEB" {
   name                = "NSG_WEB"
-  location            = "${var.location}"
-  resource_group_name = "${azurerm_resource_group.MyRG.name}"
-  tags                = "${var.tags}"
+  location            = var.location
+  resource_group_name = azurerm_resource_group.MyRG.name
+  tags                = var.tags
 
   security_rule {
     name                       = "allow_8080"
@@ -46,7 +46,3 @@ resource "azurerm_network_security_group" "NSG_WEB" {
     destination_address_prefix = "*"
   }
 }
-
-
-
-

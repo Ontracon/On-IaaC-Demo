@@ -1,5 +1,5 @@
 ---
-# This playbook contains common security settings that will be run on all nodes.
+# Thfis playbook contains common security settings that will be run on all nodes.
 
 -   name: sshd - Use Only Approved Ciphers
     lineinfile:
