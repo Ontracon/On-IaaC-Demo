@@ -7,29 +7,23 @@
 # Backend Configuration (Make sure Storage Account & Container does exists
 # Skip (comment out) if using local tfstate file
 
-terraform {
-  backend "azurerm" {
-    storage_account_name = "ondevterraform001"
-    container_name       = "on-dev-web-app-tfstate"
-    resource_group_name  = "on-ams-dev-tfstates"
-    key                  = "terraform.tfstate"
-
-  }
-}
-
-# Azure Provider with pinning Version
-provider "azurerm" {
-  # Whilst version is optional, we /strongly recommend/ using it to pin the version of the Provider being used
-  version = "=1.22.0"
-}
+#terraform {
+#  backend "azurerm" {
+#    storage_account_name = "ondevterraform001"
+#    container_name       = "on-dev-web-app-tfstate"
+#    resource_group_name  = "on-ams-dev-tfstates"
+#    key                  = "terraform.tfstate"
+#
+#  }
+#}
 
 #
 # Creating Resource Group
 #
 resource "azurerm_resource_group" "MyRG" {
-  name     = "${var.resource_group_name}"
-  location = "${var.location}"
-  tags     = "${var.tags}"
+  name     = var.resource_group_name
+  location = var.location
+  tags     = var.tags
 }
 
 #
@@ -37,12 +31,12 @@ resource "azurerm_resource_group" "MyRG" {
 #
 
 resource "random_id" "randomId" {
-    keepers = {
-        # Generate a new ID only when a new resource group is defined
-        resource_group = "${azurerm_resource_group.MyRG.name}"
-    }
+  keepers = {
+    # Generate a new ID only when a new resource group is defined
+    resource_group = "${azurerm_resource_group.MyRG.name}"
+  }
 
-    byte_length = 8
+  byte_length = 8
 }
 
 

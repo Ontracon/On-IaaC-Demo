@@ -41,5 +41,3 @@
         validate: sshd -t -f %s
     tags:
     - sshd_disable_empty_passwords
-
-
