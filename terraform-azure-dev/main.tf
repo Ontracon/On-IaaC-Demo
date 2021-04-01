@@ -1,6 +1,6 @@
 # Terraform Backend Configuration
 #
-# Needs to run with additional Configuration on Init: 
+# Needs to run with additional Configuration on Init:
 # terraform init -backend-config="access_key=Storage Access Key"
 #
 
@@ -33,7 +33,7 @@ resource "azurerm_resource_group" "MyRG" {
 resource "random_id" "randomId" {
   keepers = {
     # Generate a new ID only when a new resource group is defined
-    resource_group = "${azurerm_resource_group.MyRG.name}"
+    resource_group = azurerm_resource_group.MyRG.name
   }
 
   byte_length = 8
@@ -43,11 +43,3 @@ resource "random_id" "randomId" {
 # Files that will be included
 # network.tf 	-> Network Configuration
 # nsg.tf 	-> Network Security Groups Configuration
-
-
-
-
-
-
-
-

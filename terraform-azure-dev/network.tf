@@ -4,7 +4,7 @@
 resource "azurerm_virtual_network" "vnet" {
   name                = var.vnet_name
   location            = var.location
-  address_space       = ["${var.address_space}"]
+  address_space       = var.address_space
   resource_group_name = azurerm_resource_group.MyRG.name
   dns_servers         = var.dns_servers
   tags                = var.tags
@@ -12,7 +12,7 @@ resource "azurerm_virtual_network" "vnet" {
 
 #
 # Creating Subnets
-# 
+#
 
 resource "azurerm_subnet" "subnet_dmz" {
   name                      = "DMZ_Frontend1"
@@ -29,7 +29,3 @@ resource "azurerm_subnet" "subnet_web" {
   address_prefix            = "172.16.2.0/24"
   network_security_group_id = azurerm_network_security_group.NSG_WEB.id
 }
-
-
-
-
