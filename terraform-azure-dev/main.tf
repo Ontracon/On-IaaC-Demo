@@ -1,4 +1,5 @@
-# Terraform Backend Configuration
+
+ Terraform Backend Configuration
 #
 # Needs to run with additional Configuration on Init:
 # terraform init -backend-config="access_key=Storage Access Key"
@@ -27,7 +28,7 @@ resource "azurerm_resource_group" "MyRG" {
 }
 
 #
-# Generate a Random ID
+#  Generate a Random ID
 #
 
 resource "random_id" "randomId" {
